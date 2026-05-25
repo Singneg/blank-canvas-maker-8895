@@ -1,0 +1,1 @@
+ALTER TABLE portfolio ADD COLUMN IF NOT EXISTS show_on_landing BOOLEAN DEFAULT false;

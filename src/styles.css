@@ -1,0 +1,274 @@
+#lovable-badge,
+.lovable-badge,
+[data-lovable],
+[class*="lovable"],
+[id*="lovable"] {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,900;1,400&family=Inter:wght@300;400;500;600;700&display=swap");
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+/*
+ * LÉO MORAES BARBER — Design System
+ * Editorial dark com acentos dourados.
+ * Paleta: preto profundo (#0A0A0A), branco editorial, dourado (#C9A24B).
+ * Tipografia: Playfair Display (serif display) + Inter (corpo).
+ */
+
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Playfair Display", ui-serif, Georgia, serif;
+  --font-display: "Playfair Display", ui-serif, Georgia, serif;
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-ring-offset-background: var(--background);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+
+  --color-gold: var(--gold);
+  --color-gold-soft: var(--gold-soft);
+  --color-gold-deep: var(--gold-deep);
+  --color-surface-1: var(--surface-1);
+  --color-surface-2: var(--surface-2);
+  --color-surface-3: var(--surface-3);
+}
+
+/* Tema ESCURO premium (default :root) — preto profundo + dourado [ORIGINAL] */
+:root {
+  --radius: 0.5rem;
+
+  /* Surfaces dark originais */
+  --surface-1: oklch(0.16 0 0);
+  --surface-2: oklch(0.2 0 0);
+  --surface-3: oklch(0.24 0 0);
+
+  /* Gold original */
+  --gold: oklch(0.74 0.115 78);
+  --gold-soft: oklch(0.84 0.09 80);
+  --gold-deep: oklch(0.58 0.12 72);
+
+  --background: oklch(0.13 0 0);
+  --foreground: oklch(0.97 0 0);
+  --card: oklch(0.16 0 0);
+  --card-foreground: oklch(0.97 0 0);
+  --popover: oklch(0.18 0 0);
+  --popover-foreground: oklch(0.97 0 0);
+  --primary: oklch(0.74 0.115 78);
+  --primary-foreground: oklch(0.13 0 0);
+  --secondary: oklch(0.22 0 0);
+  --secondary-foreground: oklch(0.97 0 0);
+  --muted: oklch(0.2 0 0);
+  --muted-foreground: oklch(0.68 0 0);
+  --accent: oklch(0.74 0.115 78);
+  --accent-foreground: oklch(0.13 0 0);
+  --destructive: oklch(0.62 0.21 25);
+  --destructive-foreground: oklch(0.97 0 0);
+  --border: oklch(0.27 0 0);
+  --input: oklch(0.22 0 0);
+  --ring: oklch(0.74 0.115 78);
+
+  --chart-1: oklch(0.74 0.115 78);
+  --chart-2: oklch(0.84 0.09 80);
+  --chart-3: oklch(0.58 0.12 72);
+  --chart-4: oklch(0.6 0.05 80);
+  --chart-5: oklch(0.45 0.04 80);
+
+  --sidebar: oklch(0.13 0 0);
+  --sidebar-foreground: oklch(0.92 0 0);
+  --sidebar-primary: oklch(0.74 0.115 78);
+  --sidebar-primary-foreground: oklch(0.13 0 0);
+  --sidebar-accent: oklch(0.2 0 0);
+  --sidebar-accent-foreground: oklch(0.97 0 0);
+  --sidebar-border: oklch(0.25 0 0);
+  --sidebar-ring: oklch(0.74 0.115 78);
+}
+
+/* .dark mantido como alias do default para compatibilidade com componentes
+   que usam o variant `dark:` ou esperam a classe na <html>. */
+.dark {
+  color-scheme: dark;
+}
+
+/* Tema CLARO isolado — ativado apenas via classe .light na <html>. */
+.light {
+  color-scheme: light;
+
+  --surface-1: oklch(0.97 0.004 80);
+  --surface-2: oklch(0.94 0.005 80);
+  --surface-3: oklch(0.90 0.006 80);
+
+  --gold: oklch(0.66 0.12 75);
+  --gold-soft: oklch(0.78 0.10 78);
+  --gold-deep: oklch(0.52 0.115 70);
+
+  --background: oklch(0.99 0.003 80);
+  --foreground: oklch(0.18 0 0);
+  --card: oklch(0.985 0.003 80);
+  --card-foreground: oklch(0.18 0 0);
+  --popover: oklch(0.99 0.003 80);
+  --popover-foreground: oklch(0.18 0 0);
+  --primary: oklch(0.66 0.12 75);
+  --primary-foreground: oklch(0.99 0.003 80);
+  --secondary: oklch(0.94 0.005 80);
+  --secondary-foreground: oklch(0.18 0 0);
+  --muted: oklch(0.94 0.005 80);
+  --muted-foreground: oklch(0.42 0 0);
+  --accent: oklch(0.66 0.12 75);
+  --accent-foreground: oklch(0.99 0.003 80);
+  --destructive: oklch(0.55 0.21 25);
+  --destructive-foreground: oklch(0.99 0 0);
+  --border: oklch(0.88 0.006 80);
+  --input: oklch(0.92 0.005 80);
+  --ring: oklch(0.66 0.12 75);
+
+  --chart-1: oklch(0.66 0.12 75);
+  --chart-2: oklch(0.78 0.10 78);
+  --chart-3: oklch(0.52 0.115 70);
+  --chart-4: oklch(0.6 0.05 80);
+  --chart-5: oklch(0.45 0.04 80);
+
+  --sidebar: oklch(0.985 0.003 80);
+  --sidebar-foreground: oklch(0.22 0 0);
+  --sidebar-primary: oklch(0.66 0.12 75);
+  --sidebar-primary-foreground: oklch(0.99 0.003 80);
+  --sidebar-accent: oklch(0.94 0.005 80);
+  --sidebar-accent-foreground: oklch(0.18 0 0);
+  --sidebar-border: oklch(0.88 0.006 80);
+  --sidebar-ring: oklch(0.66 0.12 75);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  html, body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, .font-display {
+    font-family: var(--font-display);
+    letter-spacing: -0.01em;
+  }
+}
+
+@layer components {
+  .text-gold {
+    color: var(--gold);
+  }
+  .bg-gold {
+    background-color: var(--gold);
+  }
+  .border-gold {
+    border-color: var(--gold);
+  }
+  .gradient-gold {
+    background: linear-gradient(135deg, var(--gold-deep) 0%, var(--gold) 50%, var(--gold-soft) 100%);
+  }
+  .text-gradient-gold {
+    background: linear-gradient(135deg, var(--gold-soft) 0%, var(--gold) 50%, var(--gold-deep) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3)) drop-shadow(0 0 8px color-mix(in oklab, var(--gold) 25%, transparent));
+  }
+  .editorial-rule {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold) 50%, transparent);
+  }
+  .gold-glow {
+    box-shadow: 0 0 40px -10px color-mix(in oklab, var(--gold) 35%, transparent);
+  }
+  .gold-glow-soft {
+    box-shadow:
+      0 0 0 1px color-mix(in oklab, var(--gold) 18%, transparent),
+      0 8px 28px -14px color-mix(in oklab, var(--gold) 28%, transparent);
+  }
+  .premium-card {
+    background:
+      linear-gradient(180deg, color-mix(in oklab, var(--gold) 4%, var(--surface-1)) 0%, var(--surface-1) 60%);
+    border: 1px solid color-mix(in oklab, var(--gold) 14%, var(--border));
+    transition: transform .25s ease, border-color .25s ease, box-shadow .25s ease;
+  }
+  .premium-card:hover {
+    transform: translateY(-2px);
+    border-color: color-mix(in oklab, var(--gold) 45%, var(--border));
+    box-shadow:
+      0 10px 30px -18px color-mix(in oklab, var(--gold) 55%, transparent),
+      0 0 0 1px color-mix(in oklab, var(--gold) 22%, transparent);
+  }
+  .premium-pulse-dot {
+    position: relative;
+  }
+  .premium-pulse-dot::after {
+    content: "";
+    position: absolute;
+    inset: -4px;
+    border-radius: 9999px;
+    background: color-mix(in oklab, var(--gold) 50%, transparent);
+    animation: premium-pulse 1.8s ease-out infinite;
+    z-index: -1;
+  }
+}
+
+@keyframes shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+@keyframes premium-pulse {
+  0% { transform: scale(0.8); opacity: 0.7; }
+  100% { transform: scale(2.2); opacity: 0; }
+}
+@keyframes pop-in {
+  0% { transform: scale(0.92); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+.animate-pop-in { animation: pop-in .25s ease-out; }

@@ -1,0 +1,1 @@
+ALTER TABLE public.landing_settings ADD COLUMN services_highlight_word TEXT;
